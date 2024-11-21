@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        td {
+            color: #333;
+        }
+
+        table, h2 {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<h2>Coach Reports</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Coach Email</th>
+        <th>Workout Type</th>
+        <th>Average Duration</th>
+        <th>Session Count</th>
+        <th>Average Rating</th>
+        <th>Feedback Count</th>
+        <th>Client Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="report : ${reports}">
+        <td th:text="${report.getString('email')}"></td>
+        <td th:text="${report.getString('workoutType')}"></td>
+        <td th:text="${report.getDouble('averageDuration')}"></td>
+        <td th:text="${report.getInt('sessionCount')}"></td>
+        <td th:text="${report.getDouble('averageRating')}"></td>
+        <td th:text="${report.getInt('feedbackCount')}"></td>
+        <td th:text="${report.getInt('clientCount')}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: SpringBootGymApplication
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+aws:
+  accessKeyId: ${secret-1}
+  secretAccessKey: ${secret-2}
+  sessionToken: ${secret-3}
+  endpoint: dynamodb.eu-west-2.amazonaws.com
+  sqsUrl: https://sqs.eu-west-2.amazonaws.com/471112613959/reports
+  region: eu-west-2
+rsa:
+  private-key: "classpath:certs/private.pem"
+  public-key: "classpath:certs/public.pem"
+
+springdoc:
+  api-docs:
+      enabled: true
+  swagger-ui:
+      enabled: true
